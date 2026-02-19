@@ -1,8 +1,8 @@
 {
 	"name": "evolog-ai",
-	"displayName": "EvoLog AI",
-	"description": "EvoLog AI is a powerful Visual Studio Code extension that generates professional changelog entries using AI through Ollama.",
-	"version": "0.0.2",
+	"displayName": "EvoLog-AI",
+	"description": "EvoLog-AI is a powerful Visual Studio Code extension that generates professional changelog entries using AI through Ollama.",
+	"version": "0.0.3",
 	"publisher": "FadhlyPermata",
 	"icon": "assets/images/evo.png",
 	"keywords": [
@@ -54,7 +54,10 @@
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src",
-		"test": "vscode-test"
+		"test": "vscode-test",
+		"publish-patch": "npm version patch && npm run compile && vsce publish",
+		"publish-minor": "npm version minor && npm run compile && vsce publish",
+		"publish-major": "npm version major && npm run compile && vsce publish"
 	},
 	"devDependencies": {
 		"@types/mocha": "^10.0.10",
