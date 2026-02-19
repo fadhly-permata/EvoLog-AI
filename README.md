@@ -1,71 +1,85 @@
-# evolog-ai README
+# EvoLog AI 🚀
 
-This is the README for your extension "evolog-ai". After writing up a brief description, we recommend including the following sections.
+**EvoLog AI** is a game-changing VS Code extension that uses local AI power via **Ollama** to automate professional changelog creation. Say goodbye to manual writing—let AI analyze your Git history and craft meaningful release notes in seconds.
 
-## Features
+[![Version](https://img.shields.io/visual-studio-marketplace/v/yourpublisher.evolog-ai.svg)](https://marketplace.visualstudio.com/items?itemName=yourpublisher.evolog-ai)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/yourpublisher.evolog-ai.svg)](https://marketplace.visualstudio.com/items?itemName=yourpublisher.evolog-ai)
+[![License](https://img.shields.io/github/license/yourusername/evolog-ai.svg)](LICENSE)
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## ✨ Next-Level Features
 
-For example if there is an image subfolder under your extension project workspace:
+### 🤖 Supercharged AI Analysis
+*   **Local Ollama Magic:** Runs AI models locally (Llama 3, Mistral, Phi-3) so your code stays private
+*   **Smart Message Analysis:** AI actually understands what you built—not just copying commit messages
+*   **Model Swapping:** Switch between your favorite AI models on the fly for better results
 
-\!\[feature X\]\(images/feature-x.png\)
+### 🎨 Ultimate Customization
+*   **Template Gallery:** Choose from popular formats like Keep a Changelog, Conventional Commits, or custom templates
+*   **Flexible Sections:** Add your own categories—Security, Performance, Breaking Changes, you name it!
+*   **Multi-format Exports:** Get changelogs in Markdown, JSON, YAML, HTML, PDF, or DOCX
+*   **i18n Ready:** Generate changelogs in different languages
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### ⚡ Smart Automation
+*   **Git Hook Integration:** Auto-generate on commit/push hooks
+*   **CI/CD Ready:** Comes with GitHub Actions and GitLab CI templates out of the box
+*   **Package.json Sync:** Automatically updates versions in your package.json
+*   **Release Drafter:** Auto-drafts GitHub releases from your changelog
 
-## Requirements
+### 🔍 Intelligent Processing
+*   **Smart Categorization:** Auto-detect features, fixes, docs, performance, and breaking changes
+*   **Commit Grouping:** Organize by feature, component, or branch
+*   **Contributor Spotlight:** Automatically recognize and credit your team
+*   **Dependency Tracking:** Highlight important dependency updates
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### 📊 Visual Goodness
+*   **Live Preview:** See exactly what you'll get before saving
+*   **Diff Highlighting:** Visual comparison with previous versions
+*   **Timeline View:** Pretty graphical timeline of your releases
+*   **Export Wizard:** Easy multi-format exports
 
-## Extension Settings
+## 🔄 Automatic Version Updates
+*   **Smart Versioning:** AI suggests version bumps (Major, Minor, Patch) based on your changes
+*   **Incremental Updates:** Adds new entries without messing up your existing format
+*   **Duplicate Protection:** Never log the same commit twice
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## 🛠️ Flexible Commit Management
+*   **Commit Picker:** Choose exactly which commits go into each release
+*   **Git Native:** Seamless integration with VS Code's Git features
 
-For example:
+## 🚀 Quick Start (Seriously, It's Fast)
 
-This extension contributes the following settings:
+1.  **Install Ollama:** Get [Ollama](https://ollama.ai) on your machine
+2.  **Grab a Model:** Run `ollama run llama3` (or whatever model you prefer)
+3.  **Open Project:** Open your Git repo in VS Code
+4.  **Go!:** Click the EvoLog icon, pick commits, hit **Generate**
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## ⚙️ Configuration (Make It Yours)
 
-## Known Issues
+Tweak everything in `Settings > Extensions > EvoLog AI`:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+| Setting | What it does | Default |
+|:---|:---|:---|
+| `evolog.ollamaHost` | Ollama API endpoint | `http://localhost:11434` |
+| `evolog.ollamaModel` | Your preferred AI model | `llama3` |
+| `evolog.writePosition` | Where new entries go (`start`/`end`) | `start` |
+| `evolog.versionType` | Version strategy (`patch`/`smart`) | `smart` |
+| `evolog.templateType` | Changelog format style | `keep-a-changelog` |
+| `evolog.autoGenerate` | Auto-gen on git hooks | `false` |
+| `evolog.exportFormats` | Available export formats | `["md", "json"]` |
 
-## Release Notes
+## 📖 How to Use (It's Simple)
 
-Users appreciate release notes as you update your extension.
+1.  **Pick Your Commits:** Check which commits you want in the EvoLog sidebar
+2.  **Generate Magic:** Click generate—AI works its magic on your commit history
+3.  **Preview & Polish:** Edit the live preview until it's perfect
+4.  **Save & Share:** Save to CHANGELOG.md and export to other formats
 
-### 1.0.0
+## 🛡️ Privacy & Security (Your Code Stays Yours)
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+EvoLog AI takes privacy seriously. Since we use **Ollama**, all your commit data is processed **100% locally** on your machine. No code snippets or commit messages ever leave your computer.
 
 ---
 
-## Following extension guidelines
+**Built with ❤️ for developers who want to spend more time coding and less time writing docs.**
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+*Love this extension? Give it a ⭐ on the Marketplace and share it with your team!*
