@@ -1,6 +1,6 @@
-# EvoLog AI 🚀
+# EvoLog-AI 🚀
 
-**EvoLog AI** is your AI-powered VS Code extension that turbocharges your development workflow using **Ollama**. It automatically generates commit messages and changelogs so you can focus on coding. 🤖
+**EvoLog-AI** is your AI-powered VS Code extension that turbocharges your development workflow using **Ollama**. It automatically generates commit messages and changelogs so you can focus on coding. 🤖
 
 ## ✨ Features
 
@@ -31,7 +31,7 @@
 
 ## ⚙️ Configuration
 
-You can configure the extension in VS Code settings (`Settings > Extensions > EvoLog AI`):
+You can configure the extension in VS Code settings (`Settings > Extensions > EvoLog-AI`):
 
 *   `evolog.ollamaHost`: Set the Ollama API endpoint (default: `http://localhost:11434`) 🌐
 *   `evolog.ollamaModel`: Choose your preferred AI model (default: `llama3`) 🧠
@@ -53,7 +53,7 @@ You can configure the extension in VS Code settings (`Settings > Extensions > Ev
 
 ## 🔒 Privacy
 
-EvoLog AI is privacy-focused. All AI processing happens locally using Ollama—your code never leaves your machine. 🛡️
+EvoLog-AI is privacy-focused. All AI processing happens locally using Ollama—your code never leaves your machine. 🛡️
 
 ---
 
