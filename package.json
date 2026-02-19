@@ -3,12 +3,27 @@
 	"displayName": "EvoLog AI",
 	"description": "EvoLog AI is a powerful Visual Studio Code extension that generates professional changelog entries using AI through Ollama.",
 	"version": "0.0.1",
+	"publisher": "FadhlyPermata",
+	"icon": "assets/images/evo.png",
+	"keywords": [
+		"git",
+		"commit",
+		"ai",
+		"ollama",
+		"change log",
+		"changelog",
+		"generator"
+	],
 	"engines": {
 		"vscode": "^1.109.0"
 	},
 	"categories": [
 		"Other"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fadhly-permata/EvoLog-AI"
+	},
 	"activationEvents": [],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -33,7 +48,6 @@
 			]
 		}
 	},
-	"icon": "src/assets/evo.png",
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
@@ -43,13 +57,13 @@
 		"test": "vscode-test"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.109.0",
 		"@types/mocha": "^10.0.10",
 		"@types/node": "22.x",
-		"typescript-eslint": "^8.54.0",
+		"@types/vscode": "^1.109.0",
+		"@vscode/test-cli": "^0.0.12",
+		"@vscode/test-electron": "^2.5.2",
 		"eslint": "^9.39.2",
 		"typescript": "^5.9.3",
-		"@vscode/test-cli": "^0.0.12",
-		"@vscode/test-electron": "^2.5.2"
+		"typescript-eslint": "^8.54.0"
 	}
 }
