@@ -1,0 +1,42 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Main Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00C6FF"/>
+      <stop offset="100%" stop-color="#7F5CFF"/>
+    </linearGradient>
+
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F5A0"/>
+      <stop offset="100%" stop-color="#FFD166"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded Background (VSCode friendly) -->
+  <rect x="8" y="8" width="112" height="112" rx="24" fill="url(#bgGrad)"/>
+
+  <!-- Evo Text (Main Focus) -->
+  <text x="50%" y="58%" 
+        text-anchor="middle" 
+        font-family="Segoe UI, Inter, Arial, sans-serif" 
+        font-size="42" 
+        font-weight="700" 
+        fill="#FFFFFF">
+    Evo
+  </text>
+
+  <!-- Smart Commit Line (Log Representation) -->
+  <line x1="28" y1="92" x2="100" y2="92" 
+        stroke="url(#accentGrad)" 
+        stroke-width="6" 
+        stroke-linecap="round"/>
+
+  <!-- Commit Nodes (feat, fix, chore categories) -->
+  <circle cx="40" cy="92" r="5" fill="#FF6B6B"/>
+  <circle cx="64" cy="92" r="5" fill="#4DFFB8"/>
+  <circle cx="88" cy="92" r="5" fill="#FFD166"/>
+
+  <!-- Subtle AI Spark (automation/Ollama AI) -->
+  <circle cx="96" cy="34" r="6" fill="#FFFFFF" opacity="0.9"/>
+</svg>
