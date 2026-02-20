@@ -2,3 +2,4 @@ out/*
 out/test/*
 evolog-ai-*.vsix
 changelog-generator.ps1
+.vscode-test
