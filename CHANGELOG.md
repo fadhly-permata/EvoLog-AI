@@ -1,5 +1,36 @@
 ﻿# Changelog
 
+## [0.0.5b](https://github.com/fadhly-permata/EvoLog-AI/commit/24ee0bd538da51409bb1ef93460f4e9151cad4a8) - 2026-02-20 19:26:58
+
+### Commit Message
+- `ci: add main branch protection rules`
+- `ci: add extension publish workflow`
+- `ci: add test workflow for extension`
+- `chore: ignore changelog generator script`
+- `docs: expand CHANGELOG with detailed history`
+- `build: add release scripts to package.json`
+
+### Added
+- Added GitHub ruleset `.github/rulesets/main-branch-rules.yml` with branch protection rules for the main branch
+- Added GitHub workflow `.github/workflows/publish.yml` for publishing extensions
+- Added GitHub workflow `.github/workflows/test.yml` for testing extensions
+- Added release scripts to `package.json` under the "scripts" section
+- Added `.gitignore` entry for the changelog generator script
+
+### Enhanced
+- Enhanced `CHANGELOG.md` with detailed history and expanded documentation
+
+### Updated
+- Updated `package.json` to include new release scripts
+
+### Refactored
+- N/A
+
+### Removed
+- N/A
+
+----
+
 ## [0.0.5a](https://github.com/fadhly-permata/EvoLog-AI/commit/1166458570cd1fe42b02bd98bfeb89c53a62ba49) - 2026-02-20 03:01:34
 
 OPTIONAL: If we have breaking changes!
@@ -271,6 +302,7 @@ N/A
 N/A
 
 ----
+
 
 
 
