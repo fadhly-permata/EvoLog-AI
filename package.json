@@ -57,7 +57,10 @@
 		"test": "vscode-test",
 		"publish-patch": "npm version patch && npm run compile && vsce publish",
 		"publish-minor": "npm version minor && npm run compile && vsce publish",
-		"publish-major": "npm version major && npm run compile && vsce publish"
+		"publish-major": "npm version major && npm run compile && vsce publish",
+		"version": "git add -A .",
+		"prepare-release": "npm run compile && npm test",
+		"release": "npm run prepare-release && vsce publish"
 	},
 	"devDependencies": {
 		"@types/mocha": "^10.0.10",
