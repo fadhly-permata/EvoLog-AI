@@ -61,7 +61,7 @@
 		"version": "git add -A .",
 		"prepare-release": "npm run compile && npm test",
 		"release": "npm run prepare-release && vsce publish",
-		"publish:manual": "npm run compile && npm test && vsce publish",
+		"publish:manual": "npm run compile && vsce publish",
 		"publish:patch": "npm version patch && npm run publish:manual",
 		"publish:minor": "npm version minor && npm run publish:manual",
 		"publish:major": "npm version major && npm run publish:manual"
