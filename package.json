@@ -2,7 +2,7 @@
 	"name": "evolog-ai",
 	"displayName": "EvoLog-AI",
 	"description": "EvoLog-AI is a powerful Visual Studio Code extension that generates professional changelog entries using AI through Ollama.",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"publisher": "FadhlyPermata",
 	"icon": "assets/images/evo.png",
 	"keywords": [
