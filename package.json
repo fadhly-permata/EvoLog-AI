@@ -29,24 +29,53 @@
   "contributes": {
     "commands": [
       {
-        "command": "evolog-ai.helloWorld",
-        "title": "EvoLog-AI: Hello World"
+        "command": "evolog-ai.showMenu",
+        "title": "Show EvoLog-AI Menu",
+        "icon": "$(lightbulb)"
       },
       {
         "command": "evolog-ai.generateCommitMessage",
-        "title": "EvoLog-AI: Commit Message Generator",
-        "icon": "$(lightbulb)"
+        "title": "EvoLog-AI: Generate Commit Message"
+      },
+      {
+        "command": "evolog-ai.generateCommitAndChangelog",
+        "title": "EvoLog-AI: Generate Commit Message & ChangeLog"
+      },
+      {
+        "command": "evolog-ai.settings",
+        "title": "EvoLog-AI: Settings"
       }
     ],
     "menus": {
       "scm/title": [
         {
-          "command": "evolog-ai.generateCommitMessage",
+          "submenu": "evolog-ai.menu",
           "group": "navigation",
           "when": "scmProvider == git"
         }
+      ],
+      "evolog-ai.menu": [
+        {
+          "command": "evolog-ai.generateCommitMessage",
+          "group": "1_main"
+        },
+        {
+          "command": "evolog-ai.generateCommitAndChangelog",
+          "group": "1_main"
+        },
+        {
+          "command": "evolog-ai.settings",
+          "group": "2_settings"
+        }
       ]
-    }
+    },
+    "submenus": [
+      {
+        "id": "evolog-ai.menu",
+        "label": "EvoLog-AI",
+        "icon": "$(lightbulb)"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
