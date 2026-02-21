@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { EvoLogAISettingsProvider } from './view';
+import { EvoLogAISettingsProvider } from './webview';
 import { handleGenerateCommitMessage, outputChannel, DEFAULT_OLLAMA_HOST, DEFAULT_OLLAMA_MODEL } from './utility';
 
 /**
@@ -13,11 +13,6 @@ const CONFIG_KEY_MODEL = 'ollamaModel';
  * Registers all commands for the EvoLog-AI extension.
  */
 export function registerCommands(context: vscode.ExtensionContext, settingsProvider: EvoLogAISettingsProvider) {
-	// Register the tree data provider for the settings view
-	context.subscriptions.push(
-		vscode.window.registerTreeDataProvider('evolog-ai-settings', settingsProvider)
-	);
-
 	// Define command mappings
 	const commands = [
 		vscode.commands.registerCommand('evolog-ai.helloWorld', handleHelloWorld),

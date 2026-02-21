@@ -92,6 +92,7 @@
     "views": {
       "scm": [
         {
+          "type": "webview",
           "id": "evolog-ai-settings",
           "name": "EvoLog-AI: Settings",
           "icon": "$(lightbulb)",
