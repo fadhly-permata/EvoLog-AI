@@ -1,75 +1,151 @@
 {
-	"name": "evolog-ai",
-	"displayName": "EvoLog-AI",
-	"description": "EvoLog-AI is a powerful Visual Studio Code extension that generates professional changelog entries using AI through Ollama.",
-	"version": "0.0.5",
-	"publisher": "FadhlyPermata",
-	"icon": "assets/images/evo.png",
-	"keywords": [
-		"git",
-		"commit",
-		"ai",
-		"ollama",
-		"change log",
-		"changelog",
-		"generator"
-	],
-	"engines": {
-		"vscode": "^1.109.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/fadhly-permata/EvoLog-AI"
-	},
-	"activationEvents": [],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "evolog-ai.helloWorld",
-				"title": "EvoLog-AI: Hello World"
-			},
-			{
-				"command": "evolog-ai.generateCommitMessage",
-				"title": "EvoLog-AI: Commit Message Generator",
-				"icon": "$(lightbulb)"
-			}
-		],
-		"menus": {
-			"scm/title": [
-				{
-					"command": "evolog-ai.generateCommitMessage",
-					"group": "navigation",
-					"when": "scmProvider == git"
-				}
-			]
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile && npm run lint",
-		"lint": "eslint src",
-		"test": "vscode-test",
-		"publish-patch": "npm version patch && npm run compile && vsce publish",
-		"publish-minor": "npm version minor && npm run compile && vsce publish",
-		"publish-major": "npm version major && npm run compile && vsce publish",
-		"version": "git add -A .",
-		"prepare-release": "npm run compile && npm test",
-		"release": "npm run prepare-release && vsce publish"
-	},
-	"devDependencies": {
-		"@types/mocha": "^10.0.10",
-		"@types/node": "22.x",
-		"@types/vscode": "^1.109.0",
-		"@vscode/test-cli": "^0.0.12",
-		"@vscode/test-electron": "^2.5.2",
-		"eslint": "^9.39.2",
-		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.54.0"
-	}
+  "name": "evolog-ai",
+  "displayName": "EvoLog-AI",
+  "description": "EvoLog-AI is a powerful Visual Studio Code extension that generates professional changelog entries using AI through Ollama.",
+  "version": "0.0.9",
+  "publisher": "FadhlyPermata",
+  "icon": "assets/images/evo.png",
+  "keywords": [
+    "git",
+    "commit",
+    "ai",
+    "ollama",
+    "change log",
+    "changelog",
+    "generator"
+  ],
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fadhly-permata/EvoLog-AI"
+  },
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:evolog-ai.generateCommitMessage",
+    "onCommand:evolog-ai.generateCommitAndChangelog",
+    "onCommand:evolog-ai.settings"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "evolog-ai.showMenu",
+        "title": "Show EvoLog-AI Menu",
+        "icon": "$(lightbulb)"
+      },
+      {
+        "command": "evolog-ai.generateCommitMessage",
+        "title": "EvoLog-AI: Generate Commit Message"
+      },
+      {
+        "command": "evolog-ai.generateCommitAndChangelog",
+        "title": "EvoLog-AI: Generate Commit Message & ChangeLog"
+      },
+      {
+        "command": "evolog-ai.settings",
+        "title": "EvoLog-AI: Settings"
+      },
+      {
+        "command": "evolog-ai.editHost",
+        "title": "Edit Ollama Host"
+      },
+      {
+        "command": "evolog-ai.editModel",
+        "title": "Edit Ollama Model"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "submenu": "evolog-ai.menu",
+          "group": "navigation",
+          "when": "scmProvider == git"
+        }
+      ],
+      "evolog-ai.menu": [
+        {
+          "command": "evolog-ai.generateCommitMessage",
+          "group": "1_main"
+        },
+        {
+          "command": "evolog-ai.generateCommitAndChangelog",
+          "group": "1_main"
+        },
+        {
+          "command": "evolog-ai.settings",
+          "group": "2_settings"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "evolog-ai.menu",
+        "label": "EvoLog-AI",
+        "icon": "$(lightbulb)"
+      }
+    ],
+    "views": {
+      "scm": [
+        {
+          "id": "evolog-ai-settings",
+          "name": "EvoLog-AI: Settings",
+          "icon": "$(lightbulb)",
+          "when": "true"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "EvoLog-AI",
+      "properties": {
+        "evolog-ai.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable EvoLog-AI extension"
+        },
+        "evolog-ai.ollamaHost": {
+          "type": "string",
+          "default": "http://localhost:11434",
+          "description": "Ollama API host URL"
+        },
+        "evolog-ai.ollamaModel": {
+          "type": "string",
+          "default": "mistral-large-3:675b-cloud",
+          "description": "Ollama model to use for commit message generation"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "publish-patch": "npm version patch && npm run compile && vsce publish",
+    "publish-minor": "npm version minor && npm run compile && vsce publish",
+    "publish-major": "npm version major && npm run compile && vsce publish",
+    "version": "git add -A .",
+    "prepare-release": "npm run compile && npm test",
+    "release": "npm run prepare-release && vsce publish",
+    "publish:manual": "npm run compile && vsce publish",
+    "publish:patch": "npm version patch && npm run publish:manual",
+    "publish:minor": "npm version minor && npm run publish:manual",
+    "publish:major": "npm version major && npm run publish:manual"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.109.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0"
+  }
 }
