@@ -1,55 +1,47 @@
 # EvoLog-AI 🚀
 
-**EvoLog-AI** is your AI-powered VS Code extension that turbocharges your development workflow using **Ollama**. It automatically generates commit messages and changelogs so you can focus on coding. 🤖
+**EvoLog-AI** is your AI-powered VS Code extension that turbocharges your development workflow using **Ollama**. It automatically generates professional commit messages so you can focus on coding. 🤖
 
 ## ✨ Features
 
 ### 🤖 Generate Commit Messages with AI
 *   **Smart Commit Crafting:** Generate meaningful commit messages using Ollama AI instead of writing them manually ✍️
-*   **Intelligent Categorization:** AI automatically categorizes commits (like feat, fix, chore, docs, etc.) 🏷️
-*   **Context-Aware:** Uses your actual code changes to create relevant commit messages 🔍
+*   **Conventional Commits:** AI automatically categorizes commits using standard prefixes (feat, fix, docs, etc.) 🏷️
+*   **Context-Aware:** Analyzes your actual code changes (staged or unstaged) to create relevant messages 🔍
+*   **Local Processing:** All AI processing happens locally on your machine for maximum privacy 🛡️
 
-### 📄 Generate Changelogs from Git History
-*   **Automated Changelog Generation:** AI analyzes your entire commit history to create comprehensive changelogs 📊
+### 📄 Generate Changelogs (Coming Soon)
+*   **Automated Changelog Generation:** AI will analyze your commit history to create comprehensive changelogs 📊
 *   **Smart Categorization:** Auto-detects changes such as Added, Refactored, Modified, Deleted, and more 📈
-*   **Incremental Updates:** Adds new entries without disrupting your existing changelog format 🔄
-
-### 🎨 Customizable Templates
-*   **Flexible Templates:** Choose from popular formats or create custom templates for both commit messages and changelogs 🎯
-
-### ⚡ Smart Versioning and Updates
-*   **Smart Versioning:** Suggests semantic version bumps (Major, Minor, Patch) based on change impact 📦
-*   **Duplicate Protection:** Prevents logging the same commit twice across releases 🛡️
 
 ## 🚀 Quick Start
 
 1.  **Install Ollama:** Get [Ollama](https://ollama.ai) running on your machine 💻
-2.  **Setup Model:** Run `ollama run llama3` (or your preferred model) 🤖
+2.  **Setup Model:** Run `ollama run mistral-large-3:675b-cloud` (or your preferred model) 🤖
 3.  **Open Project:** Open your Git repository in VS Code 📂
-4.  **Generate Commit Messages:** Stage your changes and use EvoLog to generate a commit message 💬
-5.  **Generate Changelogs:** Select commits from source control and let EvoLog create your changelog 📝
+4.  **Generate Commit Messages:** Click the lightbulb icon in the Source Control view title bar and select **Generate Commit Message** 💬
 
 ## ⚙️ Configuration
 
 You can configure the extension in VS Code settings (`Settings > Extensions > EvoLog-AI`):
 
-*   `evolog.ollamaHost`: Set the Ollama API endpoint (default: `http://localhost:11434`) 🌐
-*   `evolog.ollamaModel`: Choose your preferred AI model (default: `llama3`) 🧠
-*   `evolog.commitTemplate`: Customize the commit message template (default: `conventional`) 💬
-*   `evolog.changelogTemplate`: Customize the changelog format (default: `keep-a-changelog`) 📄
-*   `evolog.smartCategorization`: Enable/disable AI-powered categorization (default: `true`) 🧠
+*   `evolog-ai.ollamaHost`: Set the Ollama API endpoint (default: `http://localhost:11434`) 🌐
+*   `evolog-ai.ollamaModel`: Choose your preferred AI model (default: `mistral-large-3:675b-cloud`) 🧠
+*   `evolog-ai.enabled`: Enable or disable the extension (default: `true`) ✅
 
 ## 📖 How to Use
 
 ### For Commit Messages:
-1.  Stage your changes in the Source Control view 📁
-2.  Right-click and select "Generate Commit Message with AI" 🤖
-3.  Review the generated message and commit ✅
+1.  Open the **Source Control** view (`Ctrl+Shift+G`) 📁
+2.  (Optional) Stage the changes you want to include. If no changes are staged, EvoLog will analyze unstaged changes.
+3.  Click the **EvoLog-AI** (lightbulb) icon in the Source Control title bar.
+4.  Select **EvoLog-AI: Generate Commit Message** 🤖
+5.  Review the generated message in the commit input box and commit ✅
 
-### For Changelogs:
-1.  Open the EvoLog sidebar and select the commits you want to include 🔍
-2.  Click the generate button to create the changelog 🎯
-3.  Save the result to your `CHANGELOG.md` file 💾
+### Settings Sidebar:
+EvoLog-AI provides a convenient settings view directly in the Source Control sidebar where you can quickly:
+*   View and edit the current Ollama Host.
+*   Switch between different AI models.
 
 ## 🔒 Privacy
 
@@ -58,3 +50,20 @@ EvoLog-AI is privacy-focused. All AI processing happens locally using Ollama—y
 ---
 
 **Built with ❤️ for developers who want to spend more time coding and less time writing docs.** 🎉
+
+## 🛠 Development
+
+### Build & Test
+- Install dependencies: `npm install`
+- Compile TypeScript: `npm run compile`
+- Run tests: `npm test`
+
+### Contributing
+Contributions are welcome! Please see [`CONTRIBUTING.md`](CONTRIBUTING.md) for guidelines.
+
+## 📦 Implementation Details
+
+- Default Ollama host is defined in [`src/lib/utility.ts:4`](src/lib/utility.ts:4) as `http://localhost:11434`.
+- Default model is defined in [`src/lib/utility.ts:5`](src/lib/utility.ts:5) as `mistral-large-3:675b-cloud`.
+- Commit message generation uses [`handleGenerateCommitMessage`](src/lib/utility.ts:110) which gathers git changes via the VS Code Git extension.
+- Settings UI is provided by [`EvoLogAISettingsProvider`](src/lib/view.ts:4) and registered in [`src/extension.ts:9`](src/extension.ts:9).
